@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  height: 50px;
+  width: 50px;
+
+  border: 1px solid black;
+}
