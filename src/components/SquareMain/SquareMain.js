@@ -37,6 +37,10 @@ const MainSquare = () => {
 
     if (style.backgroundColor === cellColorHover) {
       style.backgroundColor = cellColorMain;
+      const filteredData = hoverHistory.filter(
+        (el) => el.join() !== dataset.text
+      );
+      setHoverHistory(filteredData);
     } else {
       style.backgroundColor = cellColorHover;
       setHoverHistory([...hoverHistory, dataset.text.split()]);

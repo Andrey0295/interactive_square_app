@@ -43,7 +43,7 @@ const GameArea = ({
             <h1 className={title}>Hover squares</h1>
             <ul className={hoverList}>
               {hoverHistory.map((el, i) => (
-                <li className={hoverHistoryItem} key={i}>
+                <li className={hoverHistoryItem} key={el}>
                   {el}
                 </li>
               ))}
