@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/interactive_square_app/static/css/main.4cde946f.chunk.css",
-    "main.js": "/interactive_square_app/static/js/main.5f899eab.chunk.js",
-    "main.js.map": "/interactive_square_app/static/js/main.5f899eab.chunk.js.map",
+    "main.js": "/interactive_square_app/static/js/main.0d07088e.chunk.js",
+    "main.js.map": "/interactive_square_app/static/js/main.0d07088e.chunk.js.map",
     "runtime-main.js": "/interactive_square_app/static/js/runtime-main.e3f8b2ea.js",
     "runtime-main.js.map": "/interactive_square_app/static/js/runtime-main.e3f8b2ea.js.map",
     "static/js/2.5bdecb6c.chunk.js": "/interactive_square_app/static/js/2.5bdecb6c.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.e3f8b2ea.js",
     "static/js/2.5bdecb6c.chunk.js",
     "static/css/main.4cde946f.chunk.css",
-    "static/js/main.5f899eab.chunk.js"
+    "static/js/main.0d07088e.chunk.js"
   ]
 }
