@@ -1,50 +1,105 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import GameArea from "../GameArea/GameArea";
 import styles from "./SquareMain.module.css";
 
+const BASE_URL = "http://demo1030918.mockable.io/";
+const cellColorMain = "white";
+const cellColorHover = "blue";
+
+const { gameMenuBlock, select, gameBtn } = styles;
+
 const MainSquare = () => {
-  let [size, setSize] = useState(5);
-  let [matrix, setMatrix] = useState([]);
-  let [rowcolor, setRowColor] = useState("blue");
+  const [size, setSize] = useState(0);
+  const [matrix, setMatrix] = useState([]);
+  const [hoverHistory, setHoverHistory] = useState([]);
+  const [squareMode, setSquareMode] = useState({});
+  const [isStart, setIsStart] = useState(false);
+  const [selected, setSelected] = useState("pick mode");
 
-  useEffect(() => getMatrix(), []);
+  useEffect(
+    () => axios.get(BASE_URL).then(({ data }) => setSquareMode(data)),
+    []
+  );
 
-  function getMatrix() {
+  useEffect(() => {
     let row = [];
     let col = [];
-    for (let index = 0; index < 5; index++) {
+    for (let i = 0; i < size; i++) {
       col.push(0);
       row.push(col);
     }
-    console.log(col);
-    console.log("row ", row);
     setMatrix(row);
-  }
+  }, [size]);
 
   function onMouseOver(event) {
-    if (event.target.style.backgroundColor === rowcolor) {
-      event.target.style.backgroundColor = "white";
+    const { style, dataset } = event.currentTarget;
+
+    if (style.backgroundColor === cellColorHover) {
+      style.backgroundColor = cellColorMain;
     } else {
-      event.target.style.backgroundColor = rowcolor;
+      style.backgroundColor = cellColorHover;
+      setHoverHistory([...hoverHistory, dataset.text.split()]);
     }
-    console.log(event.target);
+  }
+
+  function onChangeSelect(e) {
+    const { value } = e.target;
+    setSize(squareMode[value].field);
+    setSelected(value);
+  }
+
+  function onButtonClick() {
+    setIsStart(!isStart);
+    if (isStart) {
+      resetCurrentLevel();
+    }
+  }
+
+  function resetCurrentLevel() {
+    setSize(0);
+    setMatrix([]);
+    setHoverHistory([]);
+    setSelected("pick mode");
   }
 
   return (
-    <div>
-      <ul>
-        {matrix.map((el, i) => (
-          <li className={styles.row} key={i}>
-            {el.map((sp, id) => (
-              <div
-                className={styles.col}
-                key={id}
-                onMouseOver={onMouseOver}
-              ></div>
+    <>
+      <div className={gameMenuBlock}>
+        <button
+          style={isStart ? { backgroundColor: "maroon" } : null}
+          className={gameBtn}
+          onClick={onButtonClick}
+          disabled={size ? false : true}
+        >
+          {isStart ? "Stop" : "Start"}
+        </button>
+        {squareMode && (
+          <select
+            className={select}
+            onChange={onChangeSelect}
+            value={selected}
+            disabled={isStart ? true : false}
+          >
+            <option hidden value={"pick mode"}>
+              pick mode
+            </option>
+            {Object.keys(squareMode).map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
             ))}
-          </li>
-        ))}
-      </ul>
-    </div>
+          </select>
+        )}
+      </div>
+      <GameArea
+        isStart={isStart}
+        gameMode={squareMode}
+        squareMatrixBuilder={matrix}
+        onMouseOver={onMouseOver}
+        hoverHistory={hoverHistory}
+      />
+    </>
   );
 };
 

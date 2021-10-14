@@ -1,0 +1,8 @@
+.container {
+  max-width: 73em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: coral;
+}
