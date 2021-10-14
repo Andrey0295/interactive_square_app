@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/interactive_square_app/static/css/main.4cde946f.chunk.css",
+    "main.js": "/interactive_square_app/static/js/main.50c5fc26.chunk.js",
+    "main.js.map": "/interactive_square_app/static/js/main.50c5fc26.chunk.js.map",
+    "runtime-main.js": "/interactive_square_app/static/js/runtime-main.e3f8b2ea.js",
+    "runtime-main.js.map": "/interactive_square_app/static/js/runtime-main.e3f8b2ea.js.map",
+    "static/js/2.5bdecb6c.chunk.js": "/interactive_square_app/static/js/2.5bdecb6c.chunk.js",
+    "static/js/2.5bdecb6c.chunk.js.map": "/interactive_square_app/static/js/2.5bdecb6c.chunk.js.map",
+    "index.html": "/interactive_square_app/index.html",
+    "static/css/main.4cde946f.chunk.css.map": "/interactive_square_app/static/css/main.4cde946f.chunk.css.map",
+    "static/js/2.5bdecb6c.chunk.js.LICENSE.txt": "/interactive_square_app/static/js/2.5bdecb6c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e3f8b2ea.js",
+    "static/js/2.5bdecb6c.chunk.js",
+    "static/css/main.4cde946f.chunk.css",
+    "static/js/main.50c5fc26.chunk.js"
+  ]
+}
