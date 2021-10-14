@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import GameArea from "../GameArea/GameArea";
 import styles from "./SquareMain.module.css";
 
-const BASE_URL = "http://demo1030918.mockable.io/";
+const BASE_URL = "https://demo1030918.mockable.io/";
 const cellColorMain = "white";
 const cellColorHover = "blue";
 
